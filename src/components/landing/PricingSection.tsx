@@ -17,15 +17,13 @@ const PricingSection = () => {
         </div>
         
         <div className="max-w-lg mx-auto">
-          <div className="relative p-8 md:p-12 rounded-3xl bg-background border-2 border-primary shadow-card overflow-hidden">
+          <div className="relative p-8 md:p-12 rounded-3xl bg-background border-2 border-primary shadow-card overflow-hidden px-[4px]">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 gradient-hero opacity-5 blur-3xl" />
             
             <div className="relative z-10">
               {/* Popular badge */}
-              <div className="absolute -top-4 -right-4 px-4 py-1.5 rounded-full gradient-hero text-primary-foreground text-sm font-semibold shadow-glow">
-                Most Popular
-              </div>
+              
               
               <div className="text-center mb-8">
                 <p className="text-muted-foreground mb-2">Per Hour Rate</p>
