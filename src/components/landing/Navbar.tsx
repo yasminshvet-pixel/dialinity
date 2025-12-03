@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { openCalendly } from "@/lib/calendly";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showCTA, setShowCTA] = useState(false);
@@ -45,7 +46,7 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             
-            {showCTA && <Button size="sm" className="animate-fade-in">
+            {showCTA && <Button size="sm" className="animate-fade-in" onClick={openCalendly}>
                 Book a Free Consultation
               </Button>}
           </div>
@@ -62,7 +63,7 @@ const Navbar = () => {
               {navLinks.map(link => <a key={link.label} href={link.href} className="text-foreground font-medium py-2" onClick={() => setIsMobileMenuOpen(false)}>
                   {link.label}
                 </a>)}
-              <Button className="mt-2">Book Consultation</Button>
+              <Button className="mt-2" onClick={openCalendly}>Book Consultation</Button>
             </div>
           </div>}
       </div>
