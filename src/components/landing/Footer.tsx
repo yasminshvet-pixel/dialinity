@@ -1,26 +1,21 @@
 import { Phone, Mail, MessageCircle } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="py-16 bg-foreground text-background">
+  return <footer className="py-16 bg-foreground text-background">
       <div className="container">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <h3 className="font-display text-2xl font-bold mb-4">
-              LeadCraft<span className="text-primary">Pro</span>
+              ​Dial<span className="text-primary">inity</span>
             </h3>
             <p className="text-background/70 max-w-md mb-6">
               Professional cold calling, lead generation, and appointment setting services 
               at just $7/hour. Grow your business with qualified leads and consistent appointments.
             </p>
             <div className="flex gap-4">
-              <a
-                href="mailto:contact@leadcraftpro.com"
-                className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors"
-              >
+              <a href="mailto:contact@leadcraftpro.com" className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
-                <span>contact@leadcraftpro.com</span>
+                <span>dialinity.info@gmail.com</span>
               </a>
             </div>
           </div>
@@ -57,21 +52,13 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="tel:+1234567890"
-                  className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors"
-                >
+                <a href="tel:+1234567890" className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors">
                   <Phone className="w-4 h-4" />
                   <span>+1 (234) 567-890</span>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://wa.me/1234567890"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors"
-                >
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors">
                   <MessageCircle className="w-4 h-4" />
                   <span>WhatsApp</span>
                 </a>
@@ -95,8 +82,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

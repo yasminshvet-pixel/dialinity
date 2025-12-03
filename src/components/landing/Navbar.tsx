@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="font-display text-xl font-bold text-foreground">
-            LeadCraft<span className="text-primary">Pro</span>
+            ​Dial<span className="text-primary">inity</span>
           </a>
 
           {/* Desktop Navigation */}
