@@ -1,24 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Calendar, ArrowRight, CheckCircle2 } from "lucide-react";
-
 const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero-soft" />
       <div className="absolute top-0 right-0 w-1/2 h-full gradient-hero opacity-5 blur-3xl" />
       
       {/* Floating elements */}
       <div className="absolute top-32 left-10 w-24 h-24 rounded-full gradient-hero opacity-10 animate-float" />
-      <div className="absolute bottom-32 right-20 w-32 h-32 rounded-full gradient-hero opacity-10 animate-float" style={{ animationDelay: '2s' }} />
+      <div className="absolute bottom-32 right-20 w-32 h-32 rounded-full gradient-hero opacity-10 animate-float" style={{
+      animationDelay: '2s'
+    }} />
       
       <div className="container relative z-10 py-20 lg:py-32">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-8 animate-fade-up">
-            <Phone className="w-4 h-4" />
-            <span className="text-sm font-medium">Trusted by 500+ Businesses</span>
-          </div>
+          
           
           {/* Headline */}
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6 animate-fade-up stagger-1">
@@ -39,10 +36,7 @@ const HeroSection = () => {
               Book a Free Consultation
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="outline" size="lg">
-              <Phone className="w-5 h-5" />
-              Start for $7/Hour
-            </Button>
+            
           </div>
           
           {/* Trust indicators */}
@@ -66,8 +60,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
