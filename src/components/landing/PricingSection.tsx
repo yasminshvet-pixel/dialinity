@@ -1,20 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
-
-const benefits = [
-  "Trained professional callers",
-  "CRM integration included",
-  "Daily performance reports",
-  "Direct appointment booking",
-  "Custom scripts development",
-  "Quality assurance monitoring",
-  "No long-term contracts",
-  "Cancel anytime",
-];
-
+const benefits = ["Trained professional callers", "CRM integration included", "Daily performance reports", "Direct appointment booking", "Custom scripts development", "Quality assurance monitoring", "No long-term contracts", "Cancel anytime"];
 const PricingSection = () => {
-  return (
-    <section className="py-20 lg:py-28 bg-card">
+  return <section className="py-20 lg:py-28 bg-card">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
@@ -49,20 +37,15 @@ const PricingSection = () => {
               </div>
               
               <div className="space-y-4 mb-10">
-                {benefits.map((benefit) => (
-                  <div key={benefit} className="flex items-center gap-3">
+                {benefits.map(benefit => <div key={benefit} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Check className="w-3 h-3 text-primary" />
                     </div>
                     <span className="text-foreground">{benefit}</span>
-                  </div>
-                ))}
+                  </div>)}
               </div>
               
-              <Button variant="hero" size="lg" className="w-full group">
-                Get Started Today
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+              
               
               <p className="text-center text-sm text-muted-foreground mt-4">
                 Start with a free consultation • No credit card required
@@ -71,8 +54,6 @@ const PricingSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default PricingSection;
