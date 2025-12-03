@@ -17,7 +17,7 @@ const PricingSection = () => {
         </div>
         
         <div className="max-w-lg mx-auto">
-          <div className="relative p-8 md:p-12 rounded-3xl bg-background border-2 border-primary shadow-card overflow-hidden">
+          <div className="relative p-8 md:p-12 rounded-3xl bg-background border-2 border-primary shadow-card overflow-hidden px-[47px]">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 gradient-hero opacity-5 blur-3xl" />
             
