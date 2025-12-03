@@ -4,11 +4,14 @@ import { Menu, X, Phone } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showCTA, setShowCTA] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      // Show CTA when scrolled past ~500px (hero CTA out of view)
+      setShowCTA(window.scrollY > 500);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -55,7 +58,11 @@ const Navbar = () => {
               <Phone className="w-4 h-4 mr-2" />
               Call Us
             </Button>
-            <Button size="sm">Book Consultation</Button>
+            {showCTA && (
+              <Button size="sm" className="animate-fade-in">
+                Book a Free Consultation
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
