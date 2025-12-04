@@ -31,11 +31,13 @@ const HeroSection = () => {
           
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-up stagger-3">
-            <Button variant="hero" size="lg" className="group">
-              <Calendar className="w-5 h-5" />
-              Book a Free Consultation
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <a href="#booking">
+              <Button variant="hero" size="lg" className="group">
+                <Calendar className="w-5 h-5" />
+                Book a Free Consultation
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </a>
             
           </div>
           

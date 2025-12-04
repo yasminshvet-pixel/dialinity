@@ -24,8 +24,8 @@ const Navbar = () => {
     label: "Pricing",
     href: "#pricing"
   }, {
-    label: "FAQ",
-    href: "#faq"
+    label: "Book Now",
+    href: "#booking"
   }];
   return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md shadow-soft" : "bg-transparent"}`}>
       <div className="container">
@@ -45,9 +45,9 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             
-            {showCTA && <Button size="sm" className="animate-fade-in">
+            {showCTA && <a href="#booking"><Button size="sm" className="animate-fade-in">
                 Book a Free Consultation
-              </Button>}
+              </Button></a>}
           </div>
 
           {/* Mobile Menu Button */}
@@ -62,7 +62,7 @@ const Navbar = () => {
               {navLinks.map(link => <a key={link.label} href={link.href} className="text-foreground font-medium py-2" onClick={() => setIsMobileMenuOpen(false)}>
                   {link.label}
                 </a>)}
-              <Button className="mt-2">Book Consultation</Button>
+              <a href="#booking"><Button className="mt-2">Book Consultation</Button></a>
             </div>
           </div>}
       </div>
