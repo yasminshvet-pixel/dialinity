@@ -48,7 +48,7 @@ const Booking = () => {
     });
 
     window.Cal.ns["book-a-free-consultation"]("ui", {
-      "cssVarsPerTheme": { "light": { "cal-brand": "#292929" }, "dark": { "cal-brand": "#fafafa" } },
+      "cssVarsPerTheme": { "light": { "cal-brand": "#1570EF" }, "dark": { "cal-brand": "#3B82F6" } },
       "hideEventTypeDetails": false,
       "layout": "month_view"
     });
