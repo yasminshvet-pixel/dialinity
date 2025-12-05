@@ -6,7 +6,6 @@ import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import WhyChooseUsSection from "@/components/landing/WhyChooseUsSection";
 import PricingSection from "@/components/landing/PricingSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
-import BookingSection from "@/components/landing/BookingSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
@@ -28,9 +27,6 @@ const Index = () => {
         </section>
         <section id="testimonials">
           <TestimonialsSection />
-        </section>
-        <section id="booking">
-          <BookingSection />
         </section>
       </main>
       <Footer />
