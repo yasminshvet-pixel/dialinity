@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Calendar, ArrowRight, CheckCircle2 } from "lucide-react";
 const HeroSection = () => {
@@ -31,14 +32,13 @@ const HeroSection = () => {
           
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-up stagger-3">
-            <a href="#booking">
+            <Link to="/book">
               <Button variant="hero" size="lg" className="group">
                 <Calendar className="w-5 h-5" />
                 Book a Free Consultation
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Button>
-            </a>
-            
+            </Link>
           </div>
           
           {/* Trust indicators */}
