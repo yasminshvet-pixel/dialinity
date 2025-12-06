@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, User, Mail, Phone, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User, Mail, Phone, Users, CheckCircle2, ArrowRight, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -26,11 +26,11 @@ const Booking = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
-    company: "",
-    message: "",
+    guests: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -44,11 +44,11 @@ const Booking = () => {
     setStep(1);
     setSelectedDate(undefined);
     setSelectedTime(null);
-    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+    setFormData({ firstName: "", lastName: "", email: "", phone: "", guests: "" });
   };
 
   const canProceedToStep2 = selectedDate && selectedTime;
-  const canSubmit = formData.name && formData.email && formData.phone;
+  const canSubmit = formData.firstName && formData.email;
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -192,7 +192,7 @@ const Booking = () => {
             <div className="max-w-2xl mx-auto animate-fade-up">
               <div className="p-6 md:p-10 rounded-3xl bg-card border border-border/50 shadow-card">
                 {/* Selected time summary */}
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-primary/5 border border-primary/20 mb-8">
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-primary/5 border border-primary/20 mb-4">
                   <div className="w-12 h-12 rounded-xl gradient-hero flex items-center justify-center shadow-glow">
                     <CheckCircle2 className="w-6 h-6 text-primary-foreground" />
                   </div>
@@ -212,6 +212,14 @@ const Booking = () => {
                   </Button>
                 </div>
 
+                {/* Zoom meeting indicator */}
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 mb-8">
+                  <Video className="w-5 h-5 text-blue-500" />
+                  <p className="text-sm font-medium text-foreground">
+                    This meeting will be held via <span className="text-blue-500">Zoom</span>
+                  </p>
+                </div>
+
                 <h2 className="font-display text-xl font-bold text-foreground mb-6">
                   Your Contact Information
                 </h2>
@@ -221,17 +229,33 @@ const Booking = () => {
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-foreground flex items-center gap-2">
                         <User className="w-4 h-4 text-primary" />
-                        Full Name *
+                        First Name *
                       </label>
                       <Input
-                        name="name"
-                        value={formData.name}
+                        name="firstName"
+                        value={formData.firstName}
                         onChange={handleInputChange}
-                        placeholder="John Smith"
+                        placeholder="John"
                         required
                         className="h-12 rounded-xl border-border/50 focus:border-primary"
                       />
                     </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground flex items-center gap-2">
+                        <User className="w-4 h-4 text-primary" />
+                        Last Name
+                      </label>
+                      <Input
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        placeholder="Smith"
+                        className="h-12 rounded-xl border-border/50 focus:border-primary"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-foreground flex items-center gap-2">
                         <Mail className="w-4 h-4 text-primary" />
@@ -247,13 +271,10 @@ const Booking = () => {
                         className="h-12 rounded-xl border-border/50 focus:border-primary"
                       />
                     </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-foreground flex items-center gap-2">
                         <Phone className="w-4 h-4 text-primary" />
-                        Phone Number *
+                        Phone Number
                       </label>
                       <Input
                         name="phone"
@@ -261,19 +282,6 @@ const Booking = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+1 (555) 000-0000"
-                        required
-                        className="h-12 rounded-xl border-border/50 focus:border-primary"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground flex items-center gap-2">
-                        Company Name
-                      </label>
-                      <Input
-                        name="company"
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        placeholder="Your Company"
                         className="h-12 rounded-xl border-border/50 focus:border-primary"
                       />
                     </div>
@@ -281,17 +289,19 @@ const Booking = () => {
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-foreground flex items-center gap-2">
-                      <MessageSquare className="w-4 h-4 text-primary" />
-                      Tell us about your needs
+                      <Users className="w-4 h-4 text-primary" />
+                      Add Guests
                     </label>
-                    <Textarea
-                      name="message"
-                      value={formData.message}
+                    <Input
+                      name="guests"
+                      value={formData.guests}
                       onChange={handleInputChange}
-                      placeholder="What are you looking to achieve with cold calling? Any specific goals or challenges?"
-                      rows={4}
-                      className="rounded-xl border-border/50 focus:border-primary resize-none"
+                      placeholder="guest1@email.com, guest2@email.com"
+                      className="h-12 rounded-xl border-border/50 focus:border-primary"
                     />
+                    <p className="text-xs text-muted-foreground">
+                      Separate multiple email addresses with commas
+                    </p>
                   </div>
 
                   <div className="flex gap-4 pt-4">
