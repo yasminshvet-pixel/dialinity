@@ -1,83 +1,102 @@
-import { Star, Play, Quote } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
     name: "Michael Thompson",
-    role: "CEO, Apex Solutions",
+    role: "CEO",
+    company: "Apex Solutions",
     content: "We've tripled our qualified appointments in just 2 months. The ROI has been incredible. Their callers are professional and represent our brand perfectly.",
     rating: 5,
+    initials: "MT",
   },
   {
     name: "Sarah Mitchell",
-    role: "Sales Director, GrowthForce",
+    role: "Sales Director",
+    company: "GrowthForce",
     content: "Best decision we made for our sales team. We went from struggling to fill our calendar to having consistent daily appointments. Highly recommend!",
     rating: 5,
+    initials: "SM",
   },
   {
     name: "David Chen",
-    role: "Founder, TechBridge Inc",
+    role: "Founder",
+    company: "TechBridge Inc",
     content: "At $7/hour, this is an absolute no-brainer. The quality of leads and the professionalism of the callers exceeded all our expectations.",
     rating: 5,
+    initials: "DC",
   },
+];
+
+const stats = [
+  { value: "500+", label: "Clients Served" },
+  { value: "2M+", label: "Calls Made" },
+  { value: "98%", label: "Client Retention" },
 ];
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28 bg-muted/30">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Testimonials
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Real Results From Real Clients
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Hear from businesses that transformed their sales pipeline with our service.
-          </p>
+        {/* Stats Row */}
+        <div className="flex flex-wrap justify-center gap-8 md:gap-16 mb-16">
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="font-display text-4xl md:text-5xl font-bold text-primary mb-1">
+                {stat.value}
+              </p>
+              <p className="text-sm text-muted-foreground uppercase tracking-wide">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {testimonials.map((testimonial) => (
+
+        {/* Testimonials Grid */}
+        <div className="grid lg:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className="p-8 rounded-2xl bg-card border border-border/50 hover:shadow-card transition-all duration-300"
+              className={`relative p-6 rounded-xl bg-card border border-border/50 transition-all duration-300 hover:border-primary/30 hover:shadow-lg ${
+                index === 1 ? "lg:-translate-y-4" : ""
+              }`}
             >
-              <Quote className="w-10 h-10 text-primary/20 mb-4" />
-              
-              <div className="flex gap-1 mb-4">
+              {/* Rating */}
+              <div className="flex gap-0.5 mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              
-              <p className="text-foreground mb-6 leading-relaxed">
+
+              {/* Quote */}
+              <p className="text-foreground/90 leading-relaxed mb-6">
                 "{testimonial.content}"
               </p>
-              
-              <div>
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+
+              {/* Author */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-sm font-semibold text-primary">
+                    {testimonial.initials}
+                  </span>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground text-sm">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {testimonial.role}, {testimonial.company}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
-        
-        {/* Call Demo */}
-        <div className="max-w-xl mx-auto text-center">
-          <div className="p-8 rounded-2xl gradient-hero text-primary-foreground">
-            <h3 className="font-display text-2xl font-bold mb-3">
-              Hear Our Callers in Action
-            </h3>
-            <p className="text-primary-foreground/80 mb-6">
-              Listen to a sample call and experience the quality of our trained professionals.
-            </p>
-            <Button variant="heroOutline" size="lg" className="group">
-              <Play className="w-5 h-5" />
-              Play Call Demo
-            </Button>
-          </div>
+
+        {/* Trust Badge */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-muted-foreground">
+            Trusted by sales teams at growing B2B companies
+          </p>
         </div>
       </div>
     </section>
