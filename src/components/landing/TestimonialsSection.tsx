@@ -31,10 +31,10 @@ const TestimonialsSection = () => {
             Testimonials
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Trusted by Growing Businesses
+            Real Results From Real Clients
           </h2>
           <p className="text-lg text-muted-foreground">
-            See what our clients say about working with us.
+            Hear from businesses that transformed their sales pipeline with our service.
           </p>
         </div>
         
