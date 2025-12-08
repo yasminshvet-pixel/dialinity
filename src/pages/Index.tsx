@@ -1,5 +1,6 @@
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
+import TrustSection from "@/components/landing/TrustSection";
 import ProblemSection from "@/components/landing/ProblemSection";
 import ServicesSection from "@/components/landing/ServicesSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
@@ -14,6 +15,7 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <TrustSection />
         <ProblemSection />
         <section id="services">
           <ServicesSection />
