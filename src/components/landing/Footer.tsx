@@ -70,7 +70,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-background/50">
-            © {new Date().getFullYear()} LeadCraftPro. All rights reserved.
+            © 2026 Dialinity. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="/terms" className="text-background/50 hover:text-primary transition-colors">
