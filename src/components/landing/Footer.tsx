@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="flex gap-4">
               <a href="mailto:contact@leadcraftpro.com" className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
-                <span>dialinity.info@gmail.com</span>
+                <span>​info@dialinity.com</span>
               </a>
             </div>
           </div>
