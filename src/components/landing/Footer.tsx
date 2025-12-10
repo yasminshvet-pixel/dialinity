@@ -1,4 +1,5 @@
 import { Phone, Mail, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return <footer className="py-16 bg-foreground text-background">
       <div className="container">
@@ -73,12 +74,12 @@ const Footer = () => {
             © 2026 Dialinity. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="/terms" className="text-background/50 hover:text-primary transition-colors">
+            <Link to="/terms" className="text-background/50 hover:text-primary transition-colors">
               Terms of Service
-            </a>
-            <a href="/privacy" className="text-background/50 hover:text-primary transition-colors">
+            </Link>
+            <Link to="/privacy" className="text-background/50 hover:text-primary transition-colors">
               Privacy Policy
-            </a>
+            </Link>
           </div>
         </div>
       </div>
