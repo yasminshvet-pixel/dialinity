@@ -1,5 +1,4 @@
-import { Star, Play, Quote } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -24,7 +23,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28 bg-muted/30">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
@@ -37,15 +36,35 @@ const TestimonialsSection = () => {
             See what our clients say about working with us.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {testimonials.map((testimonial) => (
+
+        {/* Featured testimonial */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="relative p-10 md:p-14 rounded-3xl bg-gradient-to-br from-primary/5 via-background to-primary/10 border border-primary/20 shadow-soft">
+            <Quote className="absolute top-6 left-6 w-16 h-16 text-primary/10" />
+            <div className="relative z-10">
+              <div className="flex gap-1 justify-center mb-6">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                ))}
+              </div>
+              <p className="text-xl md:text-2xl text-foreground text-center font-medium leading-relaxed mb-8">
+                "{testimonials[0].content}"
+              </p>
+              <div className="text-center">
+                <p className="font-semibold text-lg text-foreground">{testimonials[0].name}</p>
+                <p className="text-muted-foreground">{testimonials[0].role}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Secondary testimonials */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {testimonials.slice(1).map((testimonial) => (
             <div
               key={testimonial.name}
-              className="p-8 rounded-2xl bg-card border border-border/50 hover:shadow-card transition-all duration-300"
+              className="p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group"
             >
-              <Quote className="w-10 h-10 text-primary/20 mb-4" />
-              
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-primary text-primary" />
@@ -56,28 +75,17 @@ const TestimonialsSection = () => {
                 "{testimonial.content}"
               </p>
               
-              <div>
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold">
+                  {testimonial.name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">{testimonial.name}</p>
+                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                </div>
               </div>
             </div>
           ))}
-        </div>
-        
-        {/* Call Demo */}
-        <div className="max-w-xl mx-auto text-center">
-          <div className="p-8 rounded-2xl gradient-hero text-primary-foreground">
-            <h3 className="font-display text-2xl font-bold mb-3">
-              Hear Our Callers in Action
-            </h3>
-            <p className="text-primary-foreground/80 mb-6">
-              Listen to a sample call and experience the quality of our trained professionals.
-            </p>
-            <Button variant="heroOutline" size="lg" className="group">
-              <Play className="w-5 h-5" />
-              Play Call Demo
-            </Button>
-          </div>
         </div>
       </div>
     </section>
