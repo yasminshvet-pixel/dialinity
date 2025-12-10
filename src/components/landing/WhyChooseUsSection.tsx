@@ -9,7 +9,7 @@ const features = [
   {
     icon: Globe,
     title: "No Accent",
-    description: "Native English speakers for clear communication",
+    description: "Clear English speakers for smooth communication",
   },
   {
     icon: DollarSign,
